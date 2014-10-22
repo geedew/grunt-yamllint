@@ -180,26 +180,3 @@ function: !!js/function >
     return 'Wow! JS-YAML Rocks!';
   }
 
-
-# Custom types #################################################################
-################################################################################
-
-
-# JS-YAML allows you to specify a custom YAML types for your structures.
-# This is a simple example of custom constructor defined in `js/demo.js` for
-# custom `!sexy` type:
-#
-# var SexyYamlType = new jsyaml.Type('!sexy', {
-#   kind: 'sequence',
-#   construct: function (data) {
-#     return data.map(function (string) { return 'sexy ' + string; });
-#   }
-# });
-#
-# var SEXY_SCHEMA = jsyaml.Schema.create([ SexyYamlType ]);
-#
-# result = jsyaml.load(yourData, { schema: SEXY_SCHEMA });
-
-foobar: !sexy
-  - bunny
-  - chocolate

@@ -7,10 +7,8 @@ module.exports = function(grunt) {
 	var fs = require('fs');
 	var async = require('async');
 	var chalk = require('chalk');
-	var hooker = require('hooker');
-	var path = require('path');
 
-	grunt.registerMultiTask('yaml-lint', 'Linting YAML files for correctness.',function(){
+	grunt.registerMultiTask('yamllint', 'Linting YAML files for correctness.',function(){
 		var done = this.async();
 		var files = this.filesSrc;
 		var options = this.options({

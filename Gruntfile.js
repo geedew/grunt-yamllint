@@ -3,7 +3,7 @@
 module.exports = function(grunt) {
 	// Load npm plugins to provide necessary tasks.
 	require('jit-grunt')(grunt,{
-		'yaml-lint': 'tasks/yaml-lint.js'
+		'yamllint': 'tasks/yamllint.js'
 	});
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
@@ -23,7 +23,10 @@ module.exports = function(grunt) {
 		clean: {
 			test: ['tmp']
 		},
-		'yaml-lint': {
+		yamllint: {
+			options: {
+				force: true
+			},
 			fails: [ 'test/*.yaml' ],
 			passes: {
 				options: {
@@ -40,8 +43,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('test',[
 		'jshint',
 		'clean',
-		// 'yaml-lint:fails',
-		'yaml-lint:passes',
+		'yamllint:fails',
+		'yamllint:passes',
 		'clean'
 	]);
 
