@@ -12,7 +12,8 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		jshint: {
 			options: {
-				jshintrc: '.jshintrc'
+				jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
 			},
 			all: [
 				'Gruntfile.js',
@@ -39,7 +40,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('test',[
 		'jshint',
 		'clean',
-		'yaml-lint:fails',
+		// 'yaml-lint:fails',
 		'yaml-lint:passes',
 		'clean'
 	]);

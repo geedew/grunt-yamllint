@@ -7,6 +7,8 @@ module.exports = function(grunt) {
 	var fs = require('fs');
 	var async = require('async');
 	var chalk = require('chalk');
+	var hooker = require('hooker');
+	var path = require('path');
 
 	grunt.registerMultiTask('yaml-lint', 'Linting YAML files for correctness.',function(){
 		var done = this.async();
@@ -15,7 +17,8 @@ module.exports = function(grunt) {
 			force: false,
 			filename: null,
 			onWarning: null,
-			schema: null
+			schema: null,
+			reporterOutput: null
 		});
 		var pass = true;
 	    var force = options.force;
@@ -39,8 +42,8 @@ module.exports = function(grunt) {
 				var current_pass = true;
 				var doc;
 				try {
-					console.log(options);
-					doc = yaml.safeLoad(content, options);
+					// console.log(JSON.stringify(options));
+					doc = yaml.load(content, options);
 				} catch(e) {
 					grunt.log.writeln(chalk.yellow('An error has occured in:' + file));
 					grunt.log.writeln(chalk.red(e));
@@ -53,7 +56,6 @@ module.exports = function(grunt) {
 				}
 				return process.nextTick(next);
 			});
-
 		}, function(err){
 			if(err) {
 				grunt.warn(err);
