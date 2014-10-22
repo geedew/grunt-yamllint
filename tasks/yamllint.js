@@ -41,7 +41,9 @@ module.exports = function(grunt) {
 				var doc;
 				try {
 					// console.log(JSON.stringify(options));
-					doc = yaml.load(content, options);
+					yaml.loadAll(content, function(content) {
+						doc += content;
+					},options);
 				} catch(e) {
 					grunt.log.writeln(chalk.yellow('An error has occured in:' + file));
 					grunt.log.writeln(chalk.red(e));
