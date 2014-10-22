@@ -1,4 +1,4 @@
-# grunt-yamllint v0.10.0
+# grunt-yamllint v0.1.0
 
 > Validate YAML files with JS-YAML.
 

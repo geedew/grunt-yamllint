@@ -6,6 +6,12 @@
   "scripts": {
     "test": "grunt test"
   },
+  "keywords": [
+    "gruntplugin",
+    "js-yaml",
+    "yaml",
+    "lint"
+  ],
   "repository": "geedew/grunt-yamllint",
   "author": {
     "name": "Drew Wilson",
