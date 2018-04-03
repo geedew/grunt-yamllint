@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 						doc += content;
 					},options);
 				} catch(e) {
-					grunt.log.writeln(chalk.yellow('An error has occured in:' + file));
+					grunt.log.writeln(chalk.yellow('An error has occurred in:' + file));
 					grunt.log.writeln(chalk.red(e));
 					pass = false;
 					current_pass = false;
